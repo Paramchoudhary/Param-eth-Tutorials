@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src='main.js'></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+	<div class="container w-full md:max-w-3xl mx-auto pt-20">
+
+		<div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+
+			<!--Title-->
+			<div class="font-sans">
+				
+						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">Welcome to Param.eth Tutorials</h1>
+						<p class="text-sm md:text-base font-normal text-gray-600">Published 5 April 2022</p>
+			</div>
+
+
+			<!--Post Content-->
+
+
+			<!--Lead Para-->
+			<p class="py-6">
+				hey Guys today we learn about payable and balance smart contract in solidity.
+			</p>
+			<p class="py-6">
+			Step - 1 : Go to the remix ide, create a new file in contracts folder called "Balance.sol"
+			</p>
+			<p class="py-6">write "// SPDX-License-Identifier: MIT" in the first line of code in main.sol file in the 2nd line define your solidity complier</p>
+			<pre class="bg-gray-900 rounded text-white font-mono text-base p-4 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.7.0 <0.9.0;</code>
+			</pre>
+			<p class="py-6"> Step -2 : In the 3rd line of file write "contract" keyword and write name of the contract called "BalanceandPayable"</p>
+			<p class="py-6">in the 5th line declare your "address" called "owner" and owner should be payable because it pays and recieve Ethers.</p>
+			<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+contract BalanceChecker{
+
+//payable keyword means that the function can process transactions with non-zero Ether value
+
+address payable public owner;
+				</code>
+			</pre>
+
+			<p class="py-6">Step- 3 : Now we have to declare a constructor because when we deploy our smart contract we have 
+				to set our payable address of the contract. so when we click on deploy button then first we have to enter our address which send ethers to the contract.after that we can access our smart contract.</p>
+			<pre class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+constructor () {
+// owner address should be payable
+  owner = payable(msg.sender);
+  }
+				</code>
+			</pre>
+
+
+			<p class="py-6">Step-4 : Now create your first function of the contract , this function recieve ethers to the contract from the payable account(owner) </p>
+
+			<p class="py-6">* All Ethers are stored in contract address(address of the smart contract) </p>
+			<pre class="bg-gray-900 rounded text-white font-mono text-base p-4 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+// All ether are deposit in msg.sender Address.
+
+function deposit() external payable{}</code>
+			</pre>
+
+
+			<p class="py-6">address(this).balance let us know about line.</p>
+
+			<p class="py-6">address(this).balance let us know about line.</p>
+			<p class="py-1">address = mean this is a address</p>
+			<p class="py-1">(this) = address of the smart contract</p>
+			<p class="py-1">.balance = inbuilt variable of the object</p>
+			<!--/ Post Content-->
+
+
+
+			<p class="py-6">Here is a full code of this smart contract</p>
+
+			<pre class="bg-gray-900 rounded text-white font-mono text-base p-4 md:p-4">
+				<code class="break-words whitespace-pre-wrap">
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.1;
+					
+	contract BalanceandPayable{
+//payable keyword means that the function can process transactions with non-zero Ether value
+address payable public owner;
+constructor () {
+// owner address should be payable
+ owner = payable(msg.sender);
+	}
+// All ether are deposit in msg.sender Address.
+function deposit() external payable{}
+// check the balance of msg.sender address
+function getBalance() external view returns(uint){
+return address(this).balance;
+	}
+	}</code>
+			</pre>
+
+		</div>
+
+		<!--Tags -->
+		
+
+		<!--Divider-->
+		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
+
+
+		<!--Subscribe-->
+		<div class="container px-4">
+			<div class="font-sans bg-gradient-to-b from-green-100 to-gray-100 rounded-lg shadow-xl p-4 text-center">
+			made by Param Choudhary
+				<h3 class="font-bold break-normal text-gray-600 text-sm md:text-base"></h3>
+				<div class="w-full text-center pt-4">
+					<form action="#">
+						<div class="max-w-xl mx-auto p-1 pr-0 flex flex-wrap items-center">
+							
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- /Subscribe-->
+
+
+
+		<!--Author-->
+		
+	
+			</div>
+			
+		</div>
+		<!--/Author-->
+
+		<!--Divider-->
+		
+			
+		</div>
+
+
+		<!--/Next & Prev Links-->
+
+	</div>
+	<!--/container-->
+
+	
+   
+</body>
+</html>
